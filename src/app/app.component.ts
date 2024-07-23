@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: ``,
 })
-export class AppComponent {
-  title = 'angular-color-palette-generator';
+export default class AppComponent {
+  private readonly titleSignal = signal('Color Palette Generator App');
+  title = this.titleSignal.asReadonly();
 }
